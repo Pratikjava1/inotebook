@@ -76,7 +76,10 @@ function NotesState(props) {
             }
            })
            const json =await response.json();
+           props.showAlert({msg:"successfully deleted"});
+          
           console.log(json);
+          
           fetchAllNotes();
   
         } catch (error) {

@@ -76,12 +76,12 @@ function AuthState(props) {
             const json=await res.json();
             if(json.error && json.error.length>0)
            
-            props.showAlert(json.error); 
+            props.showAlert({msg:json.error}); 
           else{
                 localStorage.setItem("token",json.token);
                 setLoggedIn(true);
                 navigate("/");
-                props.showAlert(json.msg);
+                props.showAlert({msg:json.msg});
                 
                 
                 } 
@@ -94,7 +94,7 @@ function AuthState(props) {
     }
   return (
     <div>
-     <authcontext.Provider value ={{checkSignup,Checklogin,isLoggedIn}}>
+     <authcontext.Provider value ={{checkSignup,Checklogin,isLoggedIn,setLoggedIn}}>
         {props.children}
      </authcontext.Provider>
 

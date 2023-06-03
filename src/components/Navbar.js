@@ -6,13 +6,13 @@ import { useContext } from 'react';
 
 function Navbar() {
 
-  const {isLoggedIn}=useContext(authcontext);
+  const {isLoggedIn,setLoggedIn}=useContext(authcontext);
   let navigate =useNavigate();
 
   const handleLogout=()=>{
     navigate("/login");
     localStorage.removeItem("token");
-    
+    setLoggedIn(false);
     
   }
 

@@ -131,9 +131,9 @@ function Notes() {
       </div>
       <div className="row">
         <h2>your Notes</h2>
-        {notes.map((note) => (
+        {notes.length>0?notes.map((note) => (
           <Note key={note._id} note={note} triggerModel={triggerModel} />
-        ))}
+        )):<p>No notes to display</p>}
       </div>
     </>
   );
